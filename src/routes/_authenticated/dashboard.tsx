@@ -2,7 +2,15 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useAuth } from "@/hooks/use-auth";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => ({ meta: [{ title: "Dashboard — HireWave" }, { name: "robots", content: "noindex" }] }),
+  head: () => ({ meta: [
+    { title: "Dashboard — HireWave" },
+    { name: "description", content: "Manage your HireWave applications or employer job postings." },
+    { property: "og:title", content: "Dashboard — HireWave" },
+    { property: "og:description", content: "Manage your HireWave applications or employer job postings." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+    { name: "robots", content: "noindex" },
+  ] }),
   component: Dashboard,
 });
 
