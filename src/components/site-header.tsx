@@ -73,6 +73,9 @@ export function SiteHeader() {
         </div>
         <nav className="flex items-center gap-1 sm:gap-2">
           <Button asChild variant="ghost" size="sm">
+            <Link to="/workflow" activeProps={{ className: "text-primary" }}>Workflow</Link>
+          </Button>
+          <Button asChild variant="ghost" size="sm">
             <Link to="/jobs">Jobs</Link>
           </Button>
           {!loading && session ? (
