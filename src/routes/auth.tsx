@@ -14,8 +14,8 @@ type Search = { mode?: "signin" | "signup"; role?: AppRole };
 
 export const Route = createFileRoute("/auth")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    mode: s.mode === "signup" ? "signup" : "signin",
-    role: s.role === "employer" ? "employer" : "seeker",
+    mode: s['mode'] === "signup" ? "signup" : "signin",
+    role: s['role'] === "employer" ? "employer" : "seeker",
   }),
   head: () => ({
     meta: [
@@ -71,7 +71,7 @@ function AuthPage() {
       },
     });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     if (!data.session) toast.success("Check your email to confirm your account.");
   };
 
