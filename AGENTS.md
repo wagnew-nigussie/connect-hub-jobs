@@ -13,3 +13,4 @@
 - CVs are stored in the private `cvs` bucket under `{user_id}/...`; employers read them only via an application on their job.
 - Client auth state comes from `AuthProvider` (`src/hooks/use-auth.tsx`); signed-in pages live under `src/routes/_authenticated/`.
 - Shared back/forward controls use TanStack Router history in SiteHeader so all pages share consistent navigation without a second router.
+- The public /workflow guide documents both role journeys and distinguishes implemented screens from planned features to avoid presenting placeholders as working flows.
