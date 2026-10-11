@@ -45,7 +45,7 @@ function Index() {
           <Link
             key={f.title}
             to={f.to}
-            search={"search" in f ? f.search : undefined}
+            {...("search" in f ? { search: f.search } : {})}
             className="group rounded-xl border bg-card p-6 shadow-card transition hover:border-primary hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             <f.icon className="h-6 w-6 text-primary" />
