@@ -17,10 +17,10 @@ export const Route = createFileRoute("/")({
 });
 
 const features = [
-  { icon: Search, title: "Search & filter", text: "Find roles by keyword, category and location." },
-  { icon: FileUp, title: "Apply with your CV", text: "Upload once per application, securely stored." },
-  { icon: BarChart3, title: "Track status", text: "See if you're pending, shortlisted or rejected." },
-  { icon: Users, title: "Manage applicants", text: "Employers review CVs and update statuses." },
+  { icon: Search, title: "Search & filter", text: "Find roles by keyword, category and location.", to: "/jobs" as const },
+  { icon: FileUp, title: "Apply with your CV", text: "Upload once per application, securely stored.", to: "/jobs" as const },
+  { icon: BarChart3, title: "Track status", text: "See if you're pending, shortlisted or rejected.", to: "/dashboard" as const },
+  { icon: Users, title: "Manage applicants", text: "Employers review CVs and update statuses.", to: "/auth" as const, search: { mode: "signup", role: "employer" } as const },
 ];
 
 function Index() {
@@ -42,11 +42,16 @@ function Index() {
       </section>
       <section className="mx-auto grid max-w-6xl gap-4 px-4 py-16 sm:grid-cols-2 lg:grid-cols-4">
         {features.map((f) => (
-          <div key={f.title} className="rounded-xl border bg-card p-6 shadow-card">
+          <Link
+            key={f.title}
+            to={f.to}
+            search={"search" in f ? f.search : undefined}
+            className="group rounded-xl border bg-card p-6 shadow-card transition hover:border-primary hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+          >
             <f.icon className="h-6 w-6 text-primary" />
-            <h3 className="mt-4 font-semibold">{f.title}</h3>
+            <h3 className="mt-4 font-semibold group-hover:text-primary">{f.title}</h3>
             <p className="mt-1 text-sm text-muted-foreground">{f.text}</p>
-          </div>
+          </Link>
         ))}
       </section>
     </main>
