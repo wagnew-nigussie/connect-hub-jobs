@@ -28,9 +28,9 @@ export function EmployerDashboard({ userId, companyName }: { userId: string; com
   });
 
   const remove = async (id: string) => {
-    if (!confirm("Delete this job? Its applications will also be removed.")) return;
+    if (!confirm("Delete this job? Its applications will also be removed.")) return undefined;
     const { error } = await supabase.from("jobs").delete().eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Job deleted");
     qc.invalidateQueries({ queryKey: ["my-jobs"] });
   };
@@ -68,7 +68,7 @@ function JobDialog({ job, userId, companyName, onClose }: { job: Job | null; use
   const qc = useQueryClient();
   const [busy, setBusy] = useState(false);
   const [f, setF] = useState<JobForm>({
-    title: job?.title ?? "", company: job?.company ?? companyName, category: job?.category ?? CATEGORIES[0],
+    title: job?.title ?? "", company: job?.company ?? companyName, category: job?.category ?? "Engineering",
     location: job?.location ?? "", job_type: job?.job_type ?? "full_time", salary_range: job?.salary_range ?? "",
     description: job?.description ?? "", requirements: job?.requirements ?? "",
   });
@@ -76,14 +76,14 @@ function JobDialog({ job, userId, companyName, onClose }: { job: Job | null; use
 
   const save = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!f.title.trim() || !f.company.trim() || !f.location.trim() || !f.description.trim()) return toast.error("Please fill in all required fields");
+    if (!f.title.trim() || !f.company.trim() || !f.location.trim() || !f.description.trim()) { toast.error("Please fill in all required fields"); return; }
     setBusy(true);
     const payload = { ...f, salary_range: f.salary_range || null, requirements: f.requirements || null };
     const { error } = job
       ? await supabase.from("jobs").update(payload).eq("id", job.id)
       : await supabase.from("jobs").insert({ ...payload, employer_id: userId });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success(job ? "Job updated" : "Job posted");
     qc.invalidateQueries({ queryKey: ["my-jobs"] });
     qc.invalidateQueries({ queryKey: ["jobs"] });
@@ -141,13 +141,13 @@ function ApplicantsDialog({ job, onClose }: { job: Job; onClose: () => void }) {
 
   const openCv = async (path: string) => {
     const { data, error } = await supabase.storage.from("cvs").createSignedUrl(path, 60);
-    if (error || !data) return toast.error("Could not open CV");
+    if (error || !data) { toast.error("Could not open CV"); return; }
     window.open(data.signedUrl, "_blank", "noopener");
   };
 
   const setStatus = async (id: string, status: AppStatus) => {
     const { error } = await supabase.from("applications").update({ status }).eq("id", id);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success(`Marked as ${status}`);
     qc.invalidateQueries({ queryKey: key });
   };

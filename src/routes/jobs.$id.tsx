@@ -94,16 +94,16 @@ function ApplyBox({ jobId }: { jobId: string }) {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!file || !uid) return toast.error("Please choose your CV file");
-    if (file.size > 10 * 1024 * 1024) return toast.error("CV must be under 10 MB");
+    if (!file || !uid) { toast.error("Please choose your CV file"); return; }
+    if (file.size > 10 * 1024 * 1024) { toast.error("CV must be under 10 MB"); return; }
     setBusy(true);
     const ext = file.name.split(".").pop() ?? "pdf";
     const path = `${uid}/${jobId}-${Date.now()}.${ext}`;
     const up = await supabase.storage.from("cvs").upload(path, file);
-    if (up.error) { setBusy(false); return toast.error(up.error.message); }
+    if (up.error) { setBusy(false); toast.error(up.error.message); return; }
     const { error } = await supabase.from("applications").insert({ job_id: jobId, seeker_id: uid, cv_path: path, cover_letter: cover || null });
     setBusy(false);
-    if (error) return toast.error(error.message);
+    if (error) { toast.error(error.message); return; }
     toast.success("Application sent!");
     qc.invalidateQueries({ queryKey: ["my-application"] });
     qc.invalidateQueries({ queryKey: ["my-applications"] });
