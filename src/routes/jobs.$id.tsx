@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { toast } from "sonner";
-import { MapPin } from "lucide-react";
+import { FileText, MapPin, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -115,6 +115,18 @@ function ApplyBox({ jobId }: { jobId: string }) {
       <div className="space-y-1.5">
         <Label htmlFor="cv">CV (PDF or Word, max 10 MB)</Label>
         <Input id="cv" type="file" accept=".pdf,.doc,.docx" onChange={(e) => setFile(e.target.files?.[0] ?? null)} />
+        {file && (
+          <div className="flex items-center justify-between gap-2 rounded-lg border bg-muted/50 px-3 py-2 text-sm">
+            <span className="flex min-w-0 items-center gap-2">
+              <FileText className="h-4 w-4 shrink-0 text-primary" />
+              <span className="truncate">{file.name}</span>
+              <span className="shrink-0 text-xs text-muted-foreground">{(file.size / 1024 / 1024).toFixed(2)} MB</span>
+            </span>
+            <button type="button" aria-label="Remove file" className="text-muted-foreground hover:text-destructive" onClick={() => { setFile(null); const input = document.getElementById("cv") as HTMLInputElement | null; if (input) input.value = ""; }}>
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        )}
       </div>
       <div className="space-y-1.5">
         <Label htmlFor="cover">Cover letter (optional)</Label>
