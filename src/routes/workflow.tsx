@@ -21,16 +21,16 @@ const journeys = {
   seeker: [
     { title: "Create your account", icon: UserRoundPlus, available: true, text: "Choose Job seeker on the registration form. Enter your full name, email, and password." },
     { title: "Sign in and open your dashboard", icon: UserRound, available: true, text: "If registration asks you to confirm your email, follow the email link first. Sign in to reach your job seeker dashboard. It currently shows a welcome message." },
-    { title: "Find a job", icon: Search, available: false, text: "Search open roles and filter by category and location. Open a job to review its details. The Jobs page is currently a placeholder." },
-    { title: "Apply with your CV", icon: FileText, available: false, text: "Upload your CV and submit an application for a chosen job. CV upload and application submission are not yet available." },
-    { title: "Track your application", icon: ListChecks, available: false, text: "See each application in your dashboard, with a Pending, Shortlisted, or Rejected status. Application tracking is planned." },
+    { title: "Find a job", icon: Search, available: true, text: "Search open roles and filter by category and location. Open a job to review its details." },
+    { title: "Apply with your CV", icon: FileText, available: true, text: "Upload your CV and submit an application for a chosen job. CV upload and application submission are not yet available." },
+    { title: "Track your application", icon: ListChecks, available: true, text: "See each application in your dashboard, with a Pending, Shortlisted, or Rejected status." },
   ],
   employer: [
     { title: "Create your employer account", icon: UserRoundPlus, available: true, text: "Choose Employer on the registration form. Enter your full name, company name, email, and password." },
     { title: "Sign in and open your dashboard", icon: Briefcase, available: true, text: "If registration asks you to confirm your email, follow the email link first. Sign in to reach your employer dashboard. It currently shows a welcome message." },
-    { title: "Publish and manage jobs", icon: FileText, available: false, text: "Create a job posting, then edit or delete it when needed. Job posting and management are not yet available." },
-    { title: "Review applicants", icon: UserRound, available: false, text: "Open applications for your own job postings and review applicants' CVs. The applicant list and CV viewing are planned." },
-    { title: "Update application status", icon: ListChecks, available: false, text: "Change an application from Pending to Shortlisted or Rejected so the job seeker can track the outcome. Status updates are planned." },
+    { title: "Publish and manage jobs", icon: FileText, available: true, text: "Create a job posting, then edit or delete it when needed. Job posting and management are not yet available." },
+    { title: "Review applicants", icon: UserRound, available: true, text: "Open applications for your own job postings and review applicants' CVs." },
+    { title: "Update application status", icon: ListChecks, available: true, text: "Change an application from Pending to Shortlisted or Rejected so the job seeker can track the outcome." },
   ],
 };
 
