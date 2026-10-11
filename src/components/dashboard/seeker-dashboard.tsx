@@ -45,7 +45,10 @@ export function SeekerDashboard({ userId }: { userId: string }) {
               {a.job ? <Link to="/jobs/$id" params={{ id: a.job.id }} className="font-semibold hover:text-primary">{a.job.title}</Link> : <span className="font-semibold">Job removed</span>}
               <p className="text-sm text-muted-foreground">{a.job?.company} · {a.job?.location} · Applied {new Date(a.created_at).toLocaleDateString()}</p>
             </div>
-            <span className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${STATUS_STYLES[a.status]}`}>{a.status}</span>
+            <div className="flex items-center gap-2">
+              <span className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${STATUS_STYLES[a.status]}`}>{a.status}</span>
+              <Button size="sm" variant="ghost" className="text-destructive" onClick={() => withdraw(a.id, a.cv_path)}>Withdraw</Button>
+            </div>
           </div>
         ))}
       </div>
