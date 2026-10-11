@@ -1,22 +1,34 @@
 import { Link } from "@tanstack/react-router";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { STATUS_STYLES } from "@/lib/jobs";
 
 export function SeekerDashboard({ userId }: { userId: string }) {
+  const qc = useQueryClient();
   const { data = [], isLoading } = useQuery({
     queryKey: ["my-applications", userId],
     queryFn: async () => {
       const { data, error } = await supabase
         .from("applications")
-        .select("id, status, created_at, job:jobs(id, title, company, location)")
+        .select("id, status, cv_path, created_at, job:jobs(id, title, company, location)")
         .eq("seeker_id", userId)
         .order("created_at", { ascending: false });
       if (error) throw error;
       return data;
     },
   });
+
+  const withdraw = async (id: string, cvPath: string) => {
+    if (!confirm("Withdraw this application? Your CV will be deleted and this cannot be undone.")) return;
+    const { error } = await supabase.from("applications").delete().eq("id", id);
+    if (error) { toast.error(error.message); return; }
+    await supabase.storage.from("cvs").remove([cvPath]);
+    toast.success("Application withdrawn");
+    qc.invalidateQueries({ queryKey: ["my-applications"] });
+    qc.invalidateQueries({ queryKey: ["my-application"] });
+  };
 
   return (
     <section className="mt-8">
