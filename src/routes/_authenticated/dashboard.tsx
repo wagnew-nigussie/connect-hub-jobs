@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useAuth } from "@/hooks/use-auth";
+import { SeekerDashboard } from "@/components/dashboard/seeker-dashboard";
+import { EmployerDashboard } from "@/components/dashboard/employer-dashboard";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({ meta: [
@@ -26,11 +28,9 @@ function Dashboard() {
       <h1 className="mt-3 text-3xl font-bold">
         Welcome, {session?.user.user_metadata?.['full_name'] || session?.user.email}
       </h1>
-      <p className="mt-2 text-muted-foreground">
-        {isEmployer
-          ? "Your job postings and applicants will appear here."
-          : "Your applications and their status will appear here."}
-      </p>
+      {session && (isEmployer
+        ? <EmployerDashboard userId={session.user.id} companyName={String(session.user.user_metadata?.["company_name"] ?? "")} />
+        : <SeekerDashboard userId={session.user.id} />)}
     </main>
   );
 }
