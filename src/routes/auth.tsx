@@ -86,14 +86,14 @@ function AuthPage() {
             <TabsTrigger value="signup">Register</TabsTrigger>
           </TabsList>
           <TabsContent value="signin">
-            <form onSubmit={signIn} className="mt-4 space-y-4">
+            <form method="post" onSubmit={signIn} className="mt-4 space-y-4">
               <Field label="Email" name="email" type="email" />
               <Field label="Password" name="password" type="password" />
               <Button type="submit" className="w-full" disabled={busy}>Sign in</Button>
             </form>
           </TabsContent>
           <TabsContent value="signup">
-            <form onSubmit={signUp} className="mt-4 space-y-4">
+            <form method="post" onSubmit={signUp} className="mt-4 space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 {([["seeker", "Job seeker", UserRound], ["employer", "Employer", Briefcase]] as const).map(([r, label, Icon]) => (
                   <button
