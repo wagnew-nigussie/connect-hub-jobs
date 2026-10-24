@@ -16,7 +16,7 @@ import {
   ArrowLeft,
   Sparkles,
   ShieldCheck,
-  HeartHandshake,
+  Activity,
   Laptop,
   GraduationCap,
   Clock,
@@ -214,7 +214,7 @@ function JobDetailView() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border p-3 bg-muted/30">
-                    <HeartHandshake className="h-5 w-5 text-primary shrink-0" />
+                    <Activity className="h-5 w-5 text-primary shrink-0" />
                     <div>
                       <p className="text-xs font-semibold">Comprehensive Healthcare</p>
                       <p className="text-[11px] text-muted-foreground">Full medical, dental & vision cover</p>

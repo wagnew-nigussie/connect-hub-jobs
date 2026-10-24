@@ -444,7 +444,7 @@ function IndexPage() {
             <Badge variant="outline" className="text-primary border-primary/30">
               Community Stories
             </Badge>
-            <h2 className="text-3xl font-bold tracking-tight">Loved by Seekers & Employers</h2>
+            <h2 className="text-3xl font-bold tracking-tight">Trusted by Seekers & Employers</h2>
             <p className="text-sm text-muted-foreground">
               Hear from professionals who accelerated their career through Connect Hub Jobs
             </p>
