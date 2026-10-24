@@ -1,14 +1,9 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Connect Hub Jobs
 User-agent: *
 Allow: /
+Allow: /jobs
+Allow: /workflow
+Disallow: /seeker-dashboard/
+Disallow: /employer-dashboard/
+Disallow: /admin/
+

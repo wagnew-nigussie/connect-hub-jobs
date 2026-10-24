@@ -63,10 +63,15 @@ export const Route = createFileRoute("/jobs/")({
       { title: "Browse Jobs & Tech Careers — Connect Hub Jobs" },
       {
         name: "description",
-        content: "Discover verified open roles across top technology organizations. Search by keyword, category, and salary.",
+        content:
+          "Discover verified open roles across top technology organizations. Search by keyword, category, and salary.",
       },
       { property: "og:title", content: "Explore Tech Jobs — Connect Hub Jobs" },
-      { property: "og:description", content: "Browse verified jobs, apply directly with your CV, and track your hiring pipeline." },
+      {
+        property: "og:description",
+        content:
+          "Browse verified jobs, apply directly with your CV, and track your hiring pipeline.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -96,7 +101,9 @@ function JobsExplorePage() {
         let query = supabase.from("jobs").select("*").order("created_at", { ascending: false });
         const clean = (s: string) => s.replace(/[%,()]/g, " ").trim();
         if (clean(q)) {
-          query = query.or(`title.ilike.%${clean(q)}%,company.ilike.%${clean(q)}%,description.ilike.%${clean(q)}%`);
+          query = query.or(
+            `title.ilike.%${clean(q)}%,company.ilike.%${clean(q)}%,description.ilike.%${clean(q)}%`,
+          );
         }
         if (category !== "all") query = query.eq("category", category);
         if (selectedType !== "all") query = query.eq("job_type", selectedType as JobType);
@@ -127,7 +134,7 @@ function JobsExplorePage() {
             j.title.toLowerCase().includes(queryLower) ||
             j.company.toLowerCase().includes(queryLower) ||
             j.description.toLowerCase().includes(queryLower) ||
-            j.tags?.some((t) => t.toLowerCase().includes(queryLower))
+            j.tags?.some((t) => t.toLowerCase().includes(queryLower)),
         );
       }
       if (category !== "all") {
@@ -187,7 +194,8 @@ function JobsExplorePage() {
               Browse Available Roles
             </h1>
             <p className="text-sm text-muted-foreground">
-              Filter by specialty, contract type, and salary range. Apply directly with your private CV.
+              Filter by specialty, contract type, and salary range. Apply directly with your private
+              CV.
             </p>
           </div>
         </div>
@@ -196,7 +204,6 @@ function JobsExplorePage() {
       {/* THREE-COLUMN LAYOUT: Left Sidebar, Main Feed, Right Sidebar */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-8">
         <div className="grid gap-8 lg:grid-cols-12 items-start">
-          
           {/* ================= LEFT SIDEBAR (FILTERS) ================= */}
           <aside className="lg:col-span-3 space-y-6">
             <div className="rounded-2xl border bg-card p-5 shadow-sm space-y-6">
@@ -205,7 +212,11 @@ function JobsExplorePage() {
                   <SlidersHorizontal className="h-4 w-4 text-primary" />
                   <span>Filter Roles</span>
                 </div>
-                {(q || category !== "all" || selectedType !== "all" || location || selectedExp !== "all") && (
+                {(q ||
+                  category !== "all" ||
+                  selectedType !== "all" ||
+                  location ||
+                  selectedExp !== "all") && (
                   <button
                     type="button"
                     onClick={handleResetFilters}
@@ -258,7 +269,9 @@ function JobsExplorePage() {
                     type="button"
                     onClick={() => setSelectedType("all")}
                     className={`flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-xs font-medium transition ${
-                      selectedType === "all" ? "bg-primary text-primary-foreground font-semibold" : "hover:bg-muted text-muted-foreground"
+                      selectedType === "all"
+                        ? "bg-primary text-primary-foreground font-semibold"
+                        : "hover:bg-muted text-muted-foreground"
                     }`}
                   >
                     <span>All Types</span>
@@ -269,7 +282,9 @@ function JobsExplorePage() {
                       type="button"
                       onClick={() => setSelectedType(jt.value)}
                       className={`flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-xs font-medium transition ${
-                        selectedType === jt.value ? "bg-primary text-primary-foreground font-semibold" : "hover:bg-muted text-muted-foreground"
+                        selectedType === jt.value
+                          ? "bg-primary text-primary-foreground font-semibold"
+                          : "hover:bg-muted text-muted-foreground"
                       }`}
                     >
                       <span>{jt.label}</span>
@@ -308,7 +323,9 @@ function JobsExplorePage() {
                     type="button"
                     onClick={() => setSelectedExp("all")}
                     className={`flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-xs font-medium transition ${
-                      selectedExp === "all" ? "bg-primary text-primary-foreground font-semibold" : "hover:bg-muted text-muted-foreground"
+                      selectedExp === "all"
+                        ? "bg-primary text-primary-foreground font-semibold"
+                        : "hover:bg-muted text-muted-foreground"
                     }`}
                   >
                     <span>All Levels</span>
@@ -319,7 +336,9 @@ function JobsExplorePage() {
                       type="button"
                       onClick={() => setSelectedExp(exp.value)}
                       className={`flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-xs font-medium transition ${
-                        selectedExp === exp.value ? "bg-primary text-primary-foreground font-semibold" : "hover:bg-muted text-muted-foreground"
+                        selectedExp === exp.value
+                          ? "bg-primary text-primary-foreground font-semibold"
+                          : "hover:bg-muted text-muted-foreground"
                       }`}
                     >
                       <span>{exp.label}</span>
@@ -399,7 +418,9 @@ function JobsExplorePage() {
                         </div>
                         <div>
                           <div className="flex items-center gap-1.5">
-                            <span className="text-xs font-semibold text-muted-foreground">{job.company}</span>
+                            <span className="text-xs font-semibold text-muted-foreground">
+                              {job.company}
+                            </span>
                             <CheckCircle2 className="h-3.5 w-3.5 text-primary" />
                           </div>
                           <Link
@@ -416,7 +437,9 @@ function JobsExplorePage() {
                         type="button"
                         onClick={() => toggleSaveJob(job.id, job.title)}
                         className={`rounded-lg border p-2 transition hover:bg-muted ${
-                          saved ? "text-primary border-primary/40 bg-primary/10" : "text-muted-foreground"
+                          saved
+                            ? "text-primary border-primary/40 bg-primary/10"
+                            : "text-muted-foreground"
                         }`}
                         aria-label="Save this job"
                       >
@@ -434,7 +457,10 @@ function JobsExplorePage() {
                         <span>{job.location}</span>
                       </Badge>
                       {job.salary_range && (
-                        <Badge variant="outline" className="text-emerald-600 border-emerald-500/20 bg-emerald-500/5 font-semibold">
+                        <Badge
+                          variant="outline"
+                          className="text-emerald-600 border-emerald-500/20 bg-emerald-500/5 font-semibold"
+                        >
                           {job.salary_range}
                         </Badge>
                       )}
@@ -496,7 +522,9 @@ function JobsExplorePage() {
                         {comp.name.substring(0, 2)}
                       </div>
                       <div className="min-w-0">
-                        <p className="font-semibold text-xs text-foreground truncate">{comp.name}</p>
+                        <p className="font-semibold text-xs text-foreground truncate">
+                          {comp.name}
+                        </p>
                         <div className="flex items-center gap-1 text-[11px] text-muted-foreground">
                           <Star className="h-3 w-3 fill-amber-400 text-amber-500" />
                           <span>{comp.rating}</span>
@@ -581,17 +609,22 @@ function JobsExplorePage() {
 
             {/* Career Tip Card */}
             <div className="rounded-2xl border bg-card p-5 shadow-sm space-y-2">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-primary">Pro Tip for Seekers</h4>
+              <h4 className="font-bold text-xs uppercase tracking-wider text-primary">
+                Pro Tip for Seekers
+              </h4>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Tailoring your CV keywords to the specific requirements of a job posting increases applicant interview rates by over 60%.
+                Tailoring your CV keywords to the specific requirements of a job posting increases
+                applicant interview rates by over 60%.
               </p>
-              <Link to="/workflow" className="inline-flex items-center gap-1 text-xs text-primary font-medium hover:underline pt-1">
+              <Link
+                to="/workflow"
+                className="inline-flex items-center gap-1 text-xs text-primary font-medium hover:underline pt-1"
+              >
                 <span>Read Platform Workflow</span>
                 <ExternalLink className="h-3 w-3" />
               </Link>
             </div>
           </aside>
-
         </div>
       </div>
     </main>

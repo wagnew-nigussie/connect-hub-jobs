@@ -36,9 +36,15 @@ export const Route = createFileRoute("/jobs/$id")({
   head: () => ({
     meta: [
       { title: "Job Details & Application — Connect Hub Jobs" },
-      { name: "description", content: "Review job requirements, benefits, and submit your CV application securely." },
+      {
+        name: "description",
+        content: "Review job requirements, benefits, and submit your CV application securely.",
+      },
       { property: "og:title", content: "Job Details — Connect Hub Jobs" },
-      { property: "og:description", content: "Apply for verified roles with direct employer review." },
+      {
+        property: "og:description",
+        content: "Apply for verified roles with direct employer review.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -90,7 +96,9 @@ function JobDetailView() {
           <Briefcase className="h-6 w-6" />
         </div>
         <h1 className="text-2xl font-bold">Job Not Found</h1>
-        <p className="text-sm text-muted-foreground">This job posting may have expired or been removed by the employer.</p>
+        <p className="text-sm text-muted-foreground">
+          This job posting may have expired or been removed by the employer.
+        </p>
         <Button asChild variant="outline">
           <Link to="/jobs">Back to Open Roles</Link>
         </Button>
@@ -179,10 +187,8 @@ function JobDetailView() {
       {/* Main Two-Column Layout */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8">
         <div className="grid gap-8 lg:grid-cols-12 items-start">
-          
           {/* Left Column: Job Description, Requirements & Company Info */}
           <div className="lg:col-span-8 space-y-6">
-            
             {/* Overview & Description Card */}
             <article className="rounded-2xl border bg-card p-6 sm:p-8 shadow-sm space-y-6">
               <div>
@@ -210,28 +216,36 @@ function JobDetailView() {
                     <Laptop className="h-5 w-5 text-primary shrink-0" />
                     <div>
                       <p className="text-xs font-semibold">Remote & Flexible Work</p>
-                      <p className="text-[11px] text-muted-foreground">Work from home or flexible office</p>
+                      <p className="text-[11px] text-muted-foreground">
+                        Work from home or flexible office
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border p-3 bg-muted/30">
                     <Activity className="h-5 w-5 text-primary shrink-0" />
                     <div>
                       <p className="text-xs font-semibold">Comprehensive Healthcare</p>
-                      <p className="text-[11px] text-muted-foreground">Full medical, dental & vision cover</p>
+                      <p className="text-[11px] text-muted-foreground">
+                        Full medical, dental & vision cover
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border p-3 bg-muted/30">
                     <GraduationCap className="h-5 w-5 text-primary shrink-0" />
                     <div>
                       <p className="text-xs font-semibold">Learning Budget</p>
-                      <p className="text-[11px] text-muted-foreground">$1,500/yr for books, courses & talks</p>
+                      <p className="text-[11px] text-muted-foreground">
+                        $1,500/yr for books, courses & talks
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl border p-3 bg-muted/30">
                     <DollarSign className="h-5 w-5 text-primary shrink-0" />
                     <div>
                       <p className="text-xs font-semibold">Retirement Matching</p>
-                      <p className="text-[11px] text-muted-foreground">401(k) / pension matching plan</p>
+                      <p className="text-[11px] text-muted-foreground">
+                        401(k) / pension matching plan
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -241,7 +255,9 @@ function JobDetailView() {
               <div className="border-t pt-6">
                 <h2 className="text-lg font-bold text-foreground mb-3">About {job.company}</h2>
                 <p className="text-sm leading-relaxed text-muted-foreground">
-                  {job.company} is an established company hiring through Connect Hub Jobs. They are committed to diversity, competitive compensation, and building state-of-the-art products.
+                  {job.company} is an established company hiring through Connect Hub Jobs. They are
+                  committed to diversity, competitive compensation, and building state-of-the-art
+                  products.
                 </p>
               </div>
             </article>
@@ -259,7 +275,6 @@ function JobDetailView() {
 
           {/* Right Column: Application Box & Fast Stats */}
           <div className="lg:col-span-4 space-y-6">
-            
             {/* Interactive Apply Form */}
             <aside className="rounded-2xl border border-primary/20 bg-card p-6 shadow-md space-y-4">
               <ApplyBox jobId={job.id} jobTitle={job.title} />
@@ -275,7 +290,9 @@ function JobDetailView() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Employment</span>
-                  <span className="font-semibold text-foreground">{jobTypeLabel(job.job_type)}</span>
+                  <span className="font-semibold text-foreground">
+                    {jobTypeLabel(job.job_type)}
+                  </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-muted-foreground">Salary</span>
@@ -301,10 +318,10 @@ function JobDetailView() {
                 <span>Protected Applicant Privacy</span>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                Your uploaded CV is securely stored in a private bucket accessible only to the verified hiring team for this job.
+                Your uploaded CV is securely stored in a private bucket accessible only to the
+                verified hiring team for this job.
               </p>
             </div>
-
           </div>
         </div>
       </div>
@@ -338,7 +355,8 @@ function ApplyBox({ jobId, jobTitle }: { jobId: string; jobTitle: string }) {
     },
   });
 
-  if (loading) return <div className="text-xs text-muted-foreground py-4 text-center">Loading status…</div>;
+  if (loading)
+    return <div className="text-xs text-muted-foreground py-4 text-center">Loading status…</div>;
 
   if (!session) {
     return (
@@ -361,7 +379,8 @@ function ApplyBox({ jobId, jobTitle }: { jobId: string; jobTitle: string }) {
       <div className="space-y-2">
         <h3 className="font-bold text-sm text-foreground">Employer Account Active</h3>
         <p className="text-xs text-muted-foreground leading-relaxed">
-          You are currently signed in as an employer. Only job seeker accounts can submit job applications.
+          You are currently signed in as an employer. Only job seeker accounts can submit job
+          applications.
         </p>
         <Button asChild variant="outline" size="sm" className="w-full">
           <Link to="/dashboard">Go to Employer Dashboard</Link>
@@ -382,7 +401,9 @@ function ApplyBox({ jobId, jobTitle }: { jobId: string; jobTitle: string }) {
         </p>
         <div className="flex items-center justify-between rounded-xl border p-3 bg-muted/40">
           <span className="text-xs font-medium">Current Status:</span>
-          <span className={`rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize border ${STATUS_STYLES[existing.status]}`}>
+          <span
+            className={`rounded-full px-2.5 py-0.5 text-xs font-semibold capitalize border ${STATUS_STYLES[existing.status]}`}
+          >
             {existing.status}
           </span>
         </div>
@@ -439,7 +460,9 @@ function ApplyBox({ jobId, jobTitle }: { jobId: string; jobTitle: string }) {
     <form onSubmit={submit} className="space-y-4">
       <div>
         <h3 className="font-bold text-base text-foreground">Apply for this Position</h3>
-        <p className="text-xs text-muted-foreground">Submit your CV directly to the hiring manager</p>
+        <p className="text-xs text-muted-foreground">
+          Submit your CV directly to the hiring manager
+        </p>
       </div>
 
       <div className="space-y-1.5">

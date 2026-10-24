@@ -13,13 +13,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
 
@@ -41,7 +35,10 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Left: Brand Logo */}
         <div className="flex items-center gap-6">
-          <Link to="/" className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight">
+          <Link
+            to="/"
+            className="flex items-center gap-2.5 font-display text-lg font-bold tracking-tight"
+          >
             <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-tr from-primary to-blue-600 text-primary-foreground shadow-md shadow-primary/25 transition-transform hover:scale-105">
               <Briefcase className="h-5 w-5" />
             </span>
@@ -87,7 +84,12 @@ export function SiteHeader() {
                   <span>Dashboard</span>
                 </Link>
               </Button>
-              <Button variant="ghost" size="sm" onClick={signOut} className="gap-1.5 text-muted-foreground hover:text-destructive">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={signOut}
+                className="gap-1.5 text-muted-foreground hover:text-destructive"
+              >
                 <LogOut className="h-4 w-4" />
                 <span className="sr-only sm:not-sr-only">Sign out</span>
               </Button>
@@ -165,7 +167,11 @@ export function SiteHeader() {
               <div className="border-t pt-4">
                 {!loading && session ? (
                   <div className="space-y-2">
-                    <Button asChild className="w-full justify-center gap-2" onClick={() => setMobileOpen(false)}>
+                    <Button
+                      asChild
+                      className="w-full justify-center gap-2"
+                      onClick={() => setMobileOpen(false)}
+                    >
                       <Link to="/dashboard">
                         <LayoutDashboard className="h-4 w-4" />
                         <span>Go to Dashboard</span>
@@ -184,7 +190,11 @@ export function SiteHeader() {
                     </Button>
                   </div>
                 ) : (
-                  <Button asChild className="w-full justify-center gap-2" onClick={() => setMobileOpen(false)}>
+                  <Button
+                    asChild
+                    className="w-full justify-center gap-2"
+                    onClick={() => setMobileOpen(false)}
+                  >
                     <Link to="/auth">
                       <LogIn className="h-4 w-4" />
                       <span>Sign in to your account</span>

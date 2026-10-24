@@ -45,7 +45,8 @@ export const jobTypeLabel = (t: JobType) => JOB_TYPES.find((j) => j.value === t)
 
 export const STATUS_STYLES: Record<AppStatus, string> = {
   pending: "bg-amber-100 text-amber-800 border-amber-200 dark:bg-amber-950 dark:text-amber-300",
-  shortlisted: "bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-950 dark:text-emerald-300",
+  shortlisted:
+    "bg-emerald-100 text-emerald-800 border-emerald-200 dark:bg-emerald-950 dark:text-emerald-300",
   rejected: "bg-rose-100 text-rose-800 border-rose-200 dark:bg-rose-950 dark:text-rose-300",
 };
 

@@ -14,15 +14,18 @@ type Search = { mode?: "signin" | "signup"; role?: AppRole };
 
 export const Route = createFileRoute("/auth")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    mode: s['mode'] === "signup" ? "signup" : "signin",
-    role: s['role'] === "employer" ? "employer" : "seeker",
+    mode: s["mode"] === "signup" ? "signup" : "signin",
+    role: s["role"] === "employer" ? "employer" : "seeker",
   }),
   head: () => ({
     meta: [
       { title: "Sign in or register — Connect Hub Jobs" },
       { name: "description", content: "Sign in or create a job seeker or employer account." },
       { property: "og:title", content: "Sign in or register — Connect Hub Jobs" },
-      { property: "og:description", content: "Sign in or create a job seeker or employer account." },
+      {
+        property: "og:description",
+        content: "Sign in or create a job seeker or employer account.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -71,7 +74,10 @@ function AuthPage() {
       },
     });
     setBusy(false);
-    if (error) { toast.error(error.message); return; }
+    if (error) {
+      toast.error(error.message);
+      return;
+    }
     if (!data.session) toast.success("Check your email to confirm your account.");
   };
 
@@ -84,7 +90,9 @@ function AuthPage() {
           </div>
         </div>
         <h1 className="text-2xl font-bold text-center">Welcome to Connect Hub Jobs</h1>
-        <p className="mt-1 text-sm text-muted-foreground text-center">Sign in or create your verified account.</p>
+        <p className="mt-1 text-sm text-muted-foreground text-center">
+          Sign in or create your verified account.
+        </p>
         <Tabs value={tab} onValueChange={(v) => setTab(v as "signin" | "signup")} className="mt-6">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="signin">Sign in</TabsTrigger>
@@ -94,13 +102,20 @@ function AuthPage() {
             <form method="post" onSubmit={signIn} className="mt-4 space-y-4">
               <Field label="Email" name="email" type="email" />
               <Field label="Password" name="password" type="password" />
-              <Button type="submit" className="w-full" disabled={busy}>Sign in</Button>
+              <Button type="submit" className="w-full" disabled={busy}>
+                Sign in
+              </Button>
             </form>
           </TabsContent>
           <TabsContent value="signup">
             <form method="post" onSubmit={signUp} className="mt-4 space-y-4">
               <div className="grid grid-cols-2 gap-3">
-                {([["seeker", "Job seeker", UserRound], ["employer", "Employer", Briefcase]] as const).map(([r, label, Icon]) => (
+                {(
+                  [
+                    ["seeker", "Job seeker", UserRound],
+                    ["employer", "Employer", Briefcase],
+                  ] as const
+                ).map(([r, label, Icon]) => (
                   <button
                     key={r}
                     type="button"
@@ -119,7 +134,9 @@ function AuthPage() {
               {role === "employer" && <Field label="Company name" name="company_name" />}
               <Field label="Email" name="email" type="email" />
               <Field label="Password" name="password" type="password" minLength={6} />
-              <Button type="submit" className="w-full" disabled={busy}>Create account</Button>
+              <Button type="submit" className="w-full" disabled={busy}>
+                Create account
+              </Button>
             </form>
           </TabsContent>
         </Tabs>
@@ -128,7 +145,17 @@ function AuthPage() {
   );
 }
 
-function Field({ label, name, type = "text", minLength }: { label: string; name: string; type?: string; minLength?: number }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  minLength,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  minLength?: number;
+}) {
   return (
     <div className="space-y-1.5">
       <Label htmlFor={name}>{label}</Label>

@@ -27,7 +27,9 @@ export function SeekerDashboard({ userId }: { userId: string }) {
       try {
         const { data, error } = await supabase
           .from("applications")
-          .select("id, status, cv_path, created_at, job:jobs(id, title, company, location, job_type, salary_range)")
+          .select(
+            "id, status, cv_path, created_at, job:jobs(id, title, company, location, job_type, salary_range)",
+          )
           .eq("seeker_id", userId)
           .order("created_at", { ascending: false });
         if (error) throw error;
@@ -39,7 +41,8 @@ export function SeekerDashboard({ userId }: { userId: string }) {
   });
 
   const withdraw = async (id: string, cvPath: string) => {
-    if (!confirm("Withdraw this application? Your CV will be deleted and this cannot be undone.")) return;
+    if (!confirm("Withdraw this application? Your CV will be deleted and this cannot be undone."))
+      return;
     try {
       const { error } = await supabase.from("applications").delete().eq("id", id);
       if (error) {
@@ -64,18 +67,28 @@ export function SeekerDashboard({ userId }: { userId: string }) {
       {/* Top Metric Cards */}
       <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
         <div className="rounded-2xl border bg-card p-4 sm:p-5 shadow-sm space-y-1">
-          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Submitted</p>
+          <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+            Submitted
+          </p>
           <p className="text-2xl sm:text-3xl font-extrabold text-foreground">{data.length}</p>
           <p className="text-xs text-muted-foreground">Total applications</p>
         </div>
         <div className="rounded-2xl border bg-card p-4 sm:p-5 shadow-sm space-y-1">
-          <p className="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Pending</p>
-          <p className="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">{pendingCount}</p>
+          <p className="text-xs font-semibold text-amber-600 dark:text-amber-400 uppercase tracking-wider">
+            Pending
+          </p>
+          <p className="text-2xl sm:text-3xl font-extrabold text-amber-600 dark:text-amber-400">
+            {pendingCount}
+          </p>
           <p className="text-xs text-muted-foreground">Awaiting review</p>
         </div>
         <div className="rounded-2xl border bg-card p-4 sm:p-5 shadow-sm space-y-1">
-          <p className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Shortlisted</p>
-          <p className="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">{shortlistedCount}</p>
+          <p className="text-xs font-semibold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
+            Shortlisted
+          </p>
+          <p className="text-2xl sm:text-3xl font-extrabold text-emerald-600 dark:text-emerald-400">
+            {shortlistedCount}
+          </p>
           <p className="text-xs text-muted-foreground">Interview stage</p>
         </div>
         <div className="rounded-2xl border bg-card p-4 sm:p-5 shadow-sm space-y-1">
@@ -100,7 +113,9 @@ export function SeekerDashboard({ userId }: { userId: string }) {
           </Button>
         </div>
 
-        {isLoading && <p className="text-xs text-muted-foreground py-6 text-center">Loading applications…</p>}
+        {isLoading && (
+          <p className="text-xs text-muted-foreground py-6 text-center">Loading applications…</p>
+        )}
 
         {!isLoading && data.length === 0 && (
           <div className="rounded-2xl border bg-card p-8 text-center space-y-3">
@@ -109,7 +124,8 @@ export function SeekerDashboard({ userId }: { userId: string }) {
             </div>
             <h3 className="font-semibold text-sm">No applications submitted yet</h3>
             <p className="text-xs text-muted-foreground max-w-sm mx-auto">
-              Find positions that match your skills, upload your CV, and start connecting with top hiring managers.
+              Find positions that match your skills, upload your CV, and start connecting with top
+              hiring managers.
             </p>
             <Button asChild size="sm">
               <Link to="/jobs">Explore Available Roles</Link>
@@ -187,7 +203,11 @@ export function SeekerDashboard({ userId }: { userId: string }) {
                   <div className="flex items-start justify-between gap-2">
                     <div>
                       <p className="text-xs font-semibold text-muted-foreground">{job.company}</p>
-                      <Link to="/jobs/$id" params={{ id: job.id }} className="font-bold text-sm hover:text-primary">
+                      <Link
+                        to="/jobs/$id"
+                        params={{ id: job.id }}
+                        className="font-bold text-sm hover:text-primary"
+                      >
                         {job.title}
                       </Link>
                     </div>
@@ -203,7 +223,9 @@ export function SeekerDashboard({ userId }: { userId: string }) {
                   <div className="flex flex-wrap gap-2 text-[11px] text-muted-foreground">
                     <span>{job.location}</span>
                     <span>•</span>
-                    <span className="text-emerald-600 font-medium dark:text-emerald-400">{job.salary_range}</span>
+                    <span className="text-emerald-600 font-medium dark:text-emerald-400">
+                      {job.salary_range}
+                    </span>
                   </div>
                 </div>
 

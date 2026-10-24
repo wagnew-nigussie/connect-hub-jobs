@@ -1,3 +1,4 @@
+// Connect Hub Jobs
 export function renderErrorPage(): string {
   return `<!doctype html>
 <html lang="en">

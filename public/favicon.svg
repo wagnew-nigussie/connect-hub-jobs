@@ -1,10 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="W">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0A41AD"/>
-      <stop offset="1" stop-color="#0079EB"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
-  <path d="M15 19 L24 45 L32 27 L40 45 L49 19" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="24" fill="#2563eb"/>
+  <rect x="46" y="26" width="36" height="20" rx="6" fill="none" stroke="#ffffff" stroke-width="6"/>
+  <rect x="26" y="42" width="76" height="58" rx="10" fill="none" stroke="#ffffff" stroke-width="6"/>
+  <path d="M 28 64 L 64 76 L 100 64" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="64" cy="76" r="8" fill="#38bdf8" stroke="#ffffff" stroke-width="3"/>
 </svg>

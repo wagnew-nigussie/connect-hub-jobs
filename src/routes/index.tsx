@@ -46,7 +46,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Connect Hub Jobs — Career & Hiring Platform" },
       {
         property: "og:description",
-        content: "Discover verified high-paying roles across software engineering, product, design, and AI.",
+        content:
+          "Discover verified high-paying roles across software engineering, product, design, and AI.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -56,11 +57,26 @@ export const Route = createFileRoute("/")({
 });
 
 const CATEGORY_CARDS = [
-  { name: "Engineering", count: "1,420+ roles", icon: Code2, color: "text-blue-500 bg-blue-500/10" },
+  {
+    name: "Engineering",
+    count: "1,420+ roles",
+    icon: Code2,
+    color: "text-blue-500 bg-blue-500/10",
+  },
   { name: "Design", count: "850+ roles", icon: Palette, color: "text-purple-500 bg-purple-500/10" },
-  { name: "AI & Data Science", count: "640+ roles", icon: BrainCircuit, color: "text-emerald-500 bg-emerald-500/10" },
+  {
+    name: "AI & Data Science",
+    count: "640+ roles",
+    icon: BrainCircuit,
+    color: "text-emerald-500 bg-emerald-500/10",
+  },
   { name: "Product", count: "510+ roles", icon: Sparkles, color: "text-amber-500 bg-amber-500/10" },
-  { name: "Marketing", count: "430+ roles", icon: Megaphone, color: "text-pink-500 bg-pink-500/10" },
+  {
+    name: "Marketing",
+    count: "430+ roles",
+    icon: Megaphone,
+    color: "text-pink-500 bg-pink-500/10",
+  },
   { name: "Finance", count: "320+ roles", icon: TrendingUp, color: "text-cyan-500 bg-cyan-500/10" },
 ];
 
@@ -77,7 +93,8 @@ const TESTIMONIALS = [
       "I applied to Stripe through Connect Hub Jobs and received a response within 48 hours. The direct CV upload and real-time dashboard made the entire hiring journey seamless.",
     name: "Abebe Bekele",
     role: "Senior Full-Stack Engineer at Stripe",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
+    avatar:
+      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
     rating: 5,
   },
   {
@@ -85,7 +102,8 @@ const TESTIMONIALS = [
       "As a startup founder, hiring qualified engineers used to take months. Connect Hub Jobs gave us direct access to verified developers with zero agency fluff.",
     name: "Sarah Jenkins",
     role: "Co-Founder & VP of Product at CloudScale",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    avatar:
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
     rating: 5,
   },
   {
@@ -93,7 +111,8 @@ const TESTIMONIALS = [
       "The salary transparency and remote-first filter options are genuinely the best I have used. I landed a lead UI/UX design position while working remotely.",
     name: "Elena Vance",
     role: "Lead Product Designer at Vercel",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
+    avatar:
+      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80",
     rating: 5,
   },
 ];
@@ -141,8 +160,9 @@ function IndexPage() {
               </h1>
 
               <p className="mx-auto max-w-2xl text-base sm:text-lg text-muted-foreground lg:mx-0">
-                Connect Hub Jobs bridges the gap between ambitious professionals and world-class companies.
-                Explore verified openings, apply with a single CV upload, and track every application live.
+                Connect Hub Jobs bridges the gap between ambitious professionals and world-class
+                companies. Explore verified openings, apply with a single CV upload, and track every
+                application live.
               </p>
 
               {/* SEARCH BOX */}
@@ -177,7 +197,11 @@ function IndexPage() {
                 </div>
 
                 <div className="sm:col-span-3">
-                  <Button type="submit" size="lg" className="h-11 w-full gap-2 shadow-md shadow-primary/20">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="h-11 w-full gap-2 shadow-md shadow-primary/20"
+                  >
                     <Search className="h-4 w-4" />
                     <span>Search</span>
                   </Button>
@@ -222,10 +246,15 @@ function IndexPage() {
                         </div>
                         <div>
                           <h4 className="font-semibold text-sm">Verified Hiring Pipeline</h4>
-                          <p className="text-xs text-muted-foreground">Direct connection to decision makers</p>
+                          <p className="text-xs text-muted-foreground">
+                            Direct connection to decision makers
+                          </p>
                         </div>
                       </div>
-                      <Badge variant="secondary" className="gap-1 text-xs bg-emerald-500/10 text-emerald-600">
+                      <Badge
+                        variant="secondary"
+                        className="gap-1 text-xs bg-emerald-500/10 text-emerald-600"
+                      >
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping" />
                         Live
                       </Badge>
@@ -264,11 +293,21 @@ function IndexPage() {
               Empowering top talent from leading organizations
             </p>
             <div className="mt-6 flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-75 grayscale hover:grayscale-0 transition-all">
-              <span className="font-display font-bold text-lg sm:text-xl text-foreground">STRIPE</span>
-              <span className="font-display font-bold text-lg sm:text-xl text-foreground">VERCEL</span>
-              <span className="font-display font-bold text-lg sm:text-xl text-foreground">SHOPIFY</span>
-              <span className="font-display font-bold text-lg sm:text-xl text-foreground">CLOUDFLARE</span>
-              <span className="font-display font-bold text-lg sm:text-xl text-foreground">GITHUB</span>
+              <span className="font-display font-bold text-lg sm:text-xl text-foreground">
+                STRIPE
+              </span>
+              <span className="font-display font-bold text-lg sm:text-xl text-foreground">
+                VERCEL
+              </span>
+              <span className="font-display font-bold text-lg sm:text-xl text-foreground">
+                SHOPIFY
+              </span>
+              <span className="font-display font-bold text-lg sm:text-xl text-foreground">
+                CLOUDFLARE
+              </span>
+              <span className="font-display font-bold text-lg sm:text-xl text-foreground">
+                GITHUB
+              </span>
             </div>
           </div>
         </div>
@@ -317,7 +356,9 @@ function IndexPage() {
                 search={{ category: cat.name }}
                 className="group relative flex items-center gap-4 rounded-2xl border bg-card p-5 shadow-sm transition hover:border-primary hover:shadow-md hover:-translate-y-0.5"
               >
-                <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl ${cat.color}`}>
+                <div
+                  className={`grid h-12 w-12 shrink-0 place-items-center rounded-xl ${cat.color}`}
+                >
                   <cat.icon className="h-6 w-6" />
                 </div>
                 <div className="min-w-0 flex-1">
@@ -365,7 +406,9 @@ function IndexPage() {
                           {job.company.substring(0, 2).toUpperCase()}
                         </div>
                         <div>
-                          <p className="text-xs font-semibold text-muted-foreground">{job.company}</p>
+                          <p className="text-xs font-semibold text-muted-foreground">
+                            {job.company}
+                          </p>
                           <Link
                             to="/jobs/$id"
                             params={{ id: job.id }}
@@ -380,7 +423,9 @@ function IndexPage() {
                         type="button"
                         onClick={() => toggleSaveJob(job.id, job.title)}
                         className={`rounded-lg border p-2 transition hover:bg-muted ${
-                          saved ? "text-primary border-primary/40 bg-primary/10" : "text-muted-foreground"
+                          saved
+                            ? "text-primary border-primary/40 bg-primary/10"
+                            : "text-muted-foreground"
                         }`}
                         aria-label="Save job"
                       >
@@ -398,7 +443,10 @@ function IndexPage() {
                         <span>{job.location}</span>
                       </Badge>
                       {job.salary_range && (
-                        <Badge variant="outline" className="text-emerald-600 border-emerald-500/20 bg-emerald-500/5">
+                        <Badge
+                          variant="outline"
+                          className="text-emerald-600 border-emerald-500/20 bg-emerald-500/5"
+                        >
                           {job.salary_range}
                         </Badge>
                       )}
@@ -492,10 +540,16 @@ function IndexPage() {
                 Ready to take the next step in your career?
               </h2>
               <p className="text-sm sm:text-base opacity-90 max-w-md">
-                Create your candidate account in under 2 minutes. Upload your CV and apply to top companies today.
+                Create your candidate account in under 2 minutes. Upload your CV and apply to top
+                companies today.
               </p>
               <div className="flex flex-wrap gap-3 justify-center sm:justify-start pt-2">
-                <Button asChild size="lg" variant="secondary" className="gap-2 shadow-lg font-semibold">
+                <Button
+                  asChild
+                  size="lg"
+                  variant="secondary"
+                  className="gap-2 shadow-lg font-semibold"
+                >
                   <Link to="/auth" search={{ mode: "signup", role: "seeker" }}>
                     <span>Register as Job Seeker</span>
                     <ArrowRight className="h-4 w-4" />
@@ -517,15 +571,21 @@ function IndexPage() {
             <div className="grid gap-3 p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-emerald-300 shrink-0" />
-                <span className="text-sm font-medium">Free CV upload with secure private storage</span>
+                <span className="text-sm font-medium">
+                  Free CV upload with secure private storage
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-emerald-300 shrink-0" />
-                <span className="text-sm font-medium">Direct employer review without third-party delays</span>
+                <span className="text-sm font-medium">
+                  Direct employer review without third-party delays
+                </span>
               </div>
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="h-5 w-5 text-emerald-300 shrink-0" />
-                <span className="text-sm font-medium">Live candidate dashboard tracking application statuses</span>
+                <span className="text-sm font-medium">
+                  Live candidate dashboard tracking application statuses
+                </span>
               </div>
             </div>
           </div>

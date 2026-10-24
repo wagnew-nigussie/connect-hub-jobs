@@ -27,24 +27,30 @@ A modern, full-stack job application and hiring platform built with TanStack Sta
 ## Local Development
 
 ### 1. Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### 2. Configure Environment Variables
+
 Copy `.env.example` (or set up `.env`):
+
 ```env
 VITE_SUPABASE_URL="your-supabase-url"
 VITE_SUPABASE_PUBLISHABLE_KEY="your-supabase-publishable-key"
 ```
 
 ### 3. Start Development Server
+
 ```bash
 npm run dev
 ```
+
 Open [http://localhost:3000](http://localhost:3000) or [http://localhost:5173](http://localhost:5173) in your browser.
 
 ### 4. Build for Production
+
 ```bash
 npm run build
 npm run preview

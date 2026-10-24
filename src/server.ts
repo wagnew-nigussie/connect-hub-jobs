@@ -1,3 +1,4 @@
+// Connect Hub Jobs
 import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";

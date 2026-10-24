@@ -108,3 +108,4 @@ CREATE POLICY "Employers read applicant CVs" ON storage.objects FOR SELECT TO au
   USING (bucket_id = 'cvs' AND EXISTS (
     SELECT 1 FROM public.applications a JOIN public.jobs j ON j.id = a.job_id
     WHERE a.cv_path = storage.objects.name AND j.employer_id = auth.uid()));
+

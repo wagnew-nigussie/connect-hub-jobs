@@ -73,7 +73,9 @@ export function SiteFooter() {
               <span className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground shadow-md shadow-primary/25">
                 <Briefcase className="h-5 w-5" />
               </span>
-              <span>Connect Hub <span className="text-primary">Jobs</span></span>
+              <span>
+                Connect Hub <span className="text-primary">Jobs</span>
+              </span>
             </Link>
             <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
               The modern hiring platform connecting ambitious talent with innovative companies.
@@ -116,7 +118,9 @@ export function SiteFooter() {
 
           {/* Column 1: For Job Seekers */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">For Seekers</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              For Seekers
+            </h4>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               <li>
                 <Link to="/jobs" className="transition hover:text-primary">
@@ -124,12 +128,20 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link to="/jobs" search={{ category: "Engineering" }} className="transition hover:text-primary">
+                <Link
+                  to="/jobs"
+                  search={{ category: "Engineering" }}
+                  className="transition hover:text-primary"
+                >
                   Remote Tech Jobs
                 </Link>
               </li>
               <li>
-                <Link to="/auth" search={{ mode: "signup", role: "seeker" }} className="transition hover:text-primary">
+                <Link
+                  to="/auth"
+                  search={{ mode: "signup", role: "seeker" }}
+                  className="transition hover:text-primary"
+                >
                   Create Candidate Profile
                 </Link>
               </li>
@@ -139,7 +151,10 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link to="/workflow" className="flex items-center gap-1 transition hover:text-primary">
+                <Link
+                  to="/workflow"
+                  className="flex items-center gap-1 transition hover:text-primary"
+                >
                   <span>Seeker Guide</span>
                   <ArrowUpRight className="h-3 w-3" />
                 </Link>
@@ -149,10 +164,16 @@ export function SiteFooter() {
 
           {/* Column 2: For Employers */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">For Employers</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              For Employers
+            </h4>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               <li>
-                <Link to="/auth" search={{ mode: "signup", role: "employer" }} className="transition hover:text-primary">
+                <Link
+                  to="/auth"
+                  search={{ mode: "signup", role: "employer" }}
+                  className="transition hover:text-primary"
+                >
                   Post a Job Opening
                 </Link>
               </li>
@@ -162,12 +183,19 @@ export function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link to="/auth" search={{ mode: "signin", role: "employer" }} className="transition hover:text-primary">
+                <Link
+                  to="/auth"
+                  search={{ mode: "signin", role: "employer" }}
+                  className="transition hover:text-primary"
+                >
                   Employer Sign In
                 </Link>
               </li>
               <li>
-                <Link to="/workflow" className="flex items-center gap-1 transition hover:text-primary">
+                <Link
+                  to="/workflow"
+                  className="flex items-center gap-1 transition hover:text-primary"
+                >
                   <span>Hiring Playbook</span>
                   <ArrowUpRight className="h-3 w-3" />
                 </Link>
@@ -177,7 +205,9 @@ export function SiteFooter() {
 
           {/* Column 3: Platform Trust */}
           <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">Platform</h4>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              Platform
+            </h4>
             <ul className="mt-4 space-y-2.5 text-sm text-muted-foreground">
               <li className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <CheckCircle2 className="h-3.5 w-3.5 text-primary shrink-0" />

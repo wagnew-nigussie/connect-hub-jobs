@@ -10,9 +10,15 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
       { title: "Dashboard — Connect Hub Jobs" },
-      { name: "description", content: "Manage your Connect Hub Jobs applications or employer job postings." },
+      {
+        name: "description",
+        content: "Manage your Connect Hub Jobs applications or employer job postings.",
+      },
       { property: "og:title", content: "Dashboard — Connect Hub Jobs" },
-      { property: "og:description", content: "Manage your Connect Hub Jobs applications or employer job postings." },
+      {
+        property: "og:description",
+        content: "Manage your Connect Hub Jobs applications or employer job postings.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "robots", content: "noindex" },
@@ -34,7 +40,8 @@ function Dashboard() {
   }
 
   const isEmployer = role === "employer";
-  const userName = session?.user.user_metadata?.["full_name"] || session?.user.email?.split("@")[0] || "User";
+  const userName =
+    session?.user.user_metadata?.["full_name"] || session?.user.email?.split("@")[0] || "User";
   const companyName = String(session?.user.user_metadata?.["company_name"] ?? "");
 
   return (
@@ -93,11 +100,12 @@ function Dashboard() {
 
       {/* Main Dashboard Content */}
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {session && (isEmployer ? (
-          <EmployerDashboard userId={session.user.id} companyName={companyName} />
-        ) : (
-          <SeekerDashboard userId={session.user.id} />
-        ))}
+        {session &&
+          (isEmployer ? (
+            <EmployerDashboard userId={session.user.id} companyName={companyName} />
+          ) : (
+            <SeekerDashboard userId={session.user.id} />
+          ))}
       </div>
     </main>
   );
