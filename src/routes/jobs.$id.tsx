@@ -14,9 +14,9 @@ import { jobTypeLabel, STATUS_STYLES } from "@/lib/jobs";
 export const Route = createFileRoute("/jobs/$id")({
   head: () => ({
     meta: [
-      { title: "Job details — HireWave" },
+      { title: "Job details — Connect Hub Jobs" },
       { name: "description", content: "View the role, requirements and apply with your CV." },
-      { property: "og:title", content: "Job details — HireWave" },
+      { property: "og:title", content: "Job details — Connect Hub Jobs" },
       { property: "og:description", content: "View the role, requirements and apply with your CV." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

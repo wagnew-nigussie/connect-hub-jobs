@@ -19,9 +19,9 @@ export const Route = createFileRoute("/auth")({
   }),
   head: () => ({
     meta: [
-      { title: "Sign in or register — HireWave" },
+      { title: "Sign in or register — Connect Hub Jobs" },
       { name: "description", content: "Sign in or create a job seeker or employer account." },
-      { property: "og:title", content: "Sign in or register — HireWave" },
+      { property: "og:title", content: "Sign in or register — Connect Hub Jobs" },
       { property: "og:description", content: "Sign in or create a job seeker or employer account." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -78,7 +78,7 @@ function AuthPage() {
   return (
     <main className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-md items-center px-4 py-12">
       <div className="w-full rounded-2xl border bg-card p-6 shadow-elevated sm:p-8">
-        <h1 className="text-2xl font-bold">Welcome to HireWave</h1>
+        <h1 className="text-2xl font-bold">Welcome to Connect Hub Jobs</h1>
         <p className="mt-1 text-sm text-muted-foreground">Sign in or create your account.</p>
         <Tabs value={tab} onValueChange={(v) => setTab(v as "signin" | "signup")} className="mt-6">
           <TabsList className="grid w-full grid-cols-2">

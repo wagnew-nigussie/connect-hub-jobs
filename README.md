@@ -1,38 +1,51 @@
 # Connect Hub Jobs
 
-Job application platform
+A modern, full-stack job application and hiring platform built with TanStack Start, React 19, Tailwind CSS, and Supabase.
 
-Build a job application web platform using Next.js (TypeScript), Tailwind CSS, shadcn/ui, and Supabase (auth + PostgreSQL).
+## Features
 
-Roles:
-- Job seeker: register/login, browse and search jobs, filter by category and location, apply with a CV upload, track application status.
-- Employer: register/login, post/edit/delete jobs, view applicants, change application status (pending, shortlisted, rejected).
+- **Job Seekers**:
+  - Browse and search jobs by keyword, category, and location
+  - View detailed job descriptions and requirements
+  - Apply with CV upload (PDF/Word) and optional cover letter
+  - Real-time application tracking dashboard (Pending, Shortlisted, Rejected)
 
-Pages: landing page, jobs list, job details, login/register, seeker dashboard, employer dashboard.
+- **Employers**:
+  - Employer registration and authentication
+  - Post, edit, and delete job listings
+  - View applicants and download/view submitted CVs
+  - Update applicant status directly from the employer dashboard
 
-Design: modern, clean, mobile-responsive, with a blue and white color scheme.
+## Tech Stack
 
-Start by creating the project structure, database schema, and authentication. Then wait for my confirmation before building the next feature.?
+- **Framework**: TanStack Start / React 19
+- **Routing & State**: TanStack Router & TanStack Query
+- **Styling**: Tailwind CSS & Radix UI / shadcn/ui components
+- **Backend & Database**: Supabase (PostgreSQL, Auth, Storage)
+- **Bundler & Server**: Vite & Nitro
 
-This project was built with [Lovable](https://lovable.dev).
+## Local Development
 
-**Live app**: https://connect-hub-jobs.lovable.app
+### 1. Install Dependencies
+```bash
+npm install
+```
 
-## Build with Lovable
+### 2. Configure Environment Variables
+Copy `.env.example` (or set up `.env`):
+```env
+VITE_SUPABASE_URL="your-supabase-url"
+VITE_SUPABASE_PUBLISHABLE_KEY="your-supabase-publishable-key"
+```
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/06d663a9-8bbe-42d5-a118-e038be5fb33a).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+### 3. Start Development Server
+```bash
 npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) or [http://localhost:5173](http://localhost:5173) in your browser.
+
+### 4. Build for Production
+```bash
+npm run build
+npm run preview
 ```

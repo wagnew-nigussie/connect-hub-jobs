@@ -5,10 +5,10 @@ import { EmployerDashboard } from "@/components/dashboard/employer-dashboard";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({ meta: [
-    { title: "Dashboard — HireWave" },
-    { name: "description", content: "Manage your HireWave applications or employer job postings." },
-    { property: "og:title", content: "Dashboard — HireWave" },
-    { property: "og:description", content: "Manage your HireWave applications or employer job postings." },
+    { title: "Dashboard — Connect Hub Jobs" },
+    { name: "description", content: "Manage your Connect Hub Jobs applications or employer job postings." },
+    { property: "og:title", content: "Dashboard — Connect Hub Jobs" },
+    { property: "og:description", content: "Manage your Connect Hub Jobs applications or employer job postings." },
     { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary" },
     { name: "robots", content: "noindex" },

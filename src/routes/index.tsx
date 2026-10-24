@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "HireWave — Find your next job or your next hire" },
+      { title: "Connect Hub Jobs — Find your next job or your next hire" },
       { name: "description", content: "Browse jobs, apply with your CV, and track every application. Employers post roles and manage applicants in one place." },
-      { property: "og:title", content: "HireWave — Find your next job or your next hire" },
+      { property: "og:title", content: "Connect Hub Jobs — Find your next job or your next hire" },
       { property: "og:description", content: "Browse jobs, apply with your CV, and track every application." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -6,9 +6,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export const Route = createFileRoute("/workflow")({
   head: () => ({
     meta: [
-      { title: "Website workflow — HireWave" },
-      { name: "description", content: "A step-by-step guide to HireWave's job seeker and employer journeys, with current availability and planned features." },
-      { property: "og:title", content: "Website workflow — HireWave" },
+      { title: "Website workflow — Connect Hub Jobs" },
+      { name: "description", content: "A step-by-step guide to Connect Hub Jobs job seeker and employer journeys, with current availability and planned features." },
+      { property: "og:title", content: "Website workflow — Connect Hub Jobs" },
       { property: "og:description", content: "Follow registration, job applications, and hiring journeys with clear current and planned steps." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
@@ -38,7 +38,7 @@ function WorkflowPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-10 sm:py-14">
       <div className="border-b pb-8">
-        <div className="mb-3 flex items-center gap-2 text-sm font-medium text-primary"><FileText className="h-4 w-4" /> HireWave guide</div>
+        <div className="mb-3 flex items-center gap-2 text-sm font-medium text-primary"><FileText className="h-4 w-4" /> Connect Hub Jobs guide</div>
         <h1 className="text-3xl font-bold sm:text-4xl">Website workflow</h1>
         <p className="mt-3 max-w-2xl text-muted-foreground">From creating an account to finding a job or making a hire. Follow the journey for your role below.</p>
         <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm">

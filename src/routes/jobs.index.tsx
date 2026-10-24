@@ -10,9 +10,9 @@ import { CATEGORIES, jobTypeLabel } from "@/lib/jobs";
 export const Route = createFileRoute("/jobs/")({
   head: () => ({
     meta: [
-      { title: "Browse jobs — HireWave" },
+      { title: "Browse jobs — Connect Hub Jobs" },
       { name: "description", content: "Search open roles by keyword, category and location." },
-      { property: "og:title", content: "Browse jobs — HireWave" },
+      { property: "og:title", content: "Browse jobs — Connect Hub Jobs" },
       { property: "og:description", content: "Search open roles by keyword, category and location." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
