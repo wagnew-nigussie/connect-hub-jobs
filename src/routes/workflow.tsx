@@ -19,18 +19,18 @@ export const Route = createFileRoute("/workflow")({
 
 const journeys = {
   seeker: [
-    { title: "Create your account", icon: UserRoundPlus, available: true, text: "Choose Job seeker on the registration form. Enter your full name, email, and password." },
-    { title: "Sign in and open your dashboard", icon: UserRound, available: true, text: "If registration asks you to confirm your email, follow the email link first. Sign in to reach your job seeker dashboard. It currently shows a welcome message." },
-    { title: "Find a job", icon: Search, available: true, text: "Search open roles and filter by category and location. Open a job to review its details." },
-    { title: "Apply with your CV", icon: FileText, available: true, text: "Upload your CV and submit an application for a chosen job. CV upload and application submission are not yet available." },
-    { title: "Track your application", icon: ListChecks, available: true, text: "See each application in your dashboard, with a Pending, Shortlisted, or Rejected status." },
+    { title: "Create your candidate account", icon: UserRoundPlus, available: true, text: "Choose Job seeker on the registration form. Enter your full name, email, and password to create your profile." },
+    { title: "Sign in and open candidate dashboard", icon: UserRound, available: true, text: "Sign in securely. Your personal dashboard allows you to track all your applications, interview statuses, and saved jobs." },
+    { title: "Find matching job openings", icon: Search, available: true, text: "Search across hundreds of verified roles, filter by category, employment type, and location." },
+    { title: "Apply with your private CV", icon: FileText, available: true, text: "Upload your CV in PDF or DOCX format (up to 10 MB) with an optional personal cover note directly to the employer." },
+    { title: "Track application in real time", icon: ListChecks, available: true, text: "Watch your application status progress live from Pending to Shortlisted or Rejected." },
   ],
   employer: [
-    { title: "Create your employer account", icon: UserRoundPlus, available: true, text: "Choose Employer on the registration form. Enter your full name, company name, email, and password." },
-    { title: "Sign in and open your dashboard", icon: Briefcase, available: true, text: "If registration asks you to confirm your email, follow the email link first. Sign in to reach your employer dashboard. It currently shows a welcome message." },
-    { title: "Publish and manage jobs", icon: FileText, available: true, text: "Create a job posting, then edit or delete it when needed. Job posting and management are not yet available." },
-    { title: "Review applicants", icon: UserRound, available: true, text: "Open applications for your own job postings and review applicants' CVs." },
-    { title: "Update application status", icon: ListChecks, available: true, text: "Change an application from Pending to Shortlisted or Rejected so the job seeker can track the outcome." },
+    { title: "Create employer account", icon: UserRoundPlus, available: true, text: "Choose Employer on the registration form. Register with your company name, email, and credentials." },
+    { title: "Access employer command center", icon: Briefcase, available: true, text: "Sign in to your employer dashboard to manage job postings, active openings, and applicant counts." },
+    { title: "Publish and manage job postings", icon: FileText, available: true, text: "Create high-impact job postings with category, location, salary range, and requirements in seconds." },
+    { title: "Review applicant CVs", icon: UserRound, available: true, text: "Open applications received for your postings and view/download candidates' submitted CV documents." },
+    { title: "Update applicant status", icon: ListChecks, available: true, text: "Move applicants seamlessly to Shortlisted or Rejected. Candidates are updated in their live dashboards." },
   ],
 };
 

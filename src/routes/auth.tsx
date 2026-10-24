@@ -77,9 +77,14 @@ function AuthPage() {
 
   return (
     <main className="mx-auto flex min-h-[calc(100vh-4rem)] max-w-md items-center px-4 py-12">
-      <div className="w-full rounded-2xl border bg-card p-6 shadow-elevated sm:p-8">
-        <h1 className="text-2xl font-bold">Welcome to Connect Hub Jobs</h1>
-        <p className="mt-1 text-sm text-muted-foreground">Sign in or create your account.</p>
+      <div className="w-full rounded-2xl border bg-card p-6 shadow-xl sm:p-8">
+        <div className="flex justify-center mb-4">
+          <div className="grid h-12 w-12 place-items-center rounded-2xl bg-gradient-to-tr from-primary to-blue-600 text-primary-foreground shadow-md shadow-primary/25">
+            <Briefcase className="h-6 w-6" />
+          </div>
+        </div>
+        <h1 className="text-2xl font-bold text-center">Welcome to Connect Hub Jobs</h1>
+        <p className="mt-1 text-sm text-muted-foreground text-center">Sign in or create your verified account.</p>
         <Tabs value={tab} onValueChange={(v) => setTab(v as "signin" | "signup")} className="mt-6">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="signin">Sign in</TabsTrigger>
